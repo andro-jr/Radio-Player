@@ -60,11 +60,15 @@ const dataLength = datas.length;
 let count = 0;
 let playPauseFlag = 0;
 
+
+
 // Rendering channel
 const renderChannel = (count)=>{
     audioTitle.textContent = datas[count].name;
     // audioImg.src = datas[count].image;
     audioPlayer.src = datas[count].url;
+    audioPlayer.play();
+    playPauseFlag=0;
 }
 
 renderChannel(0);
@@ -79,6 +83,7 @@ nextBTn.addEventListener('click',()=>{
     }
 
     renderChannel(count);
+    playPauseBtn.classList.remove('change-to-pause');
 });
 
 previousBTn.addEventListener('click',()=>{
@@ -90,6 +95,7 @@ previousBTn.addEventListener('click',()=>{
     console.log(count);
 
     renderChannel(count);
+    playPauseBtn.classList.remove('change-to-pause');
 });
 
 playPauseBtn.addEventListener('click',()=>{
@@ -104,3 +110,4 @@ playPauseBtn.addEventListener('click',()=>{
     }
 
 });
+
